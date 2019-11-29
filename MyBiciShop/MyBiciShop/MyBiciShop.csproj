@@ -183,6 +183,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -232,6 +233,10 @@
     <Compile Include="Migrations\201911290234075_AddOrderDetailsModelAndRelationship.Designer.cs">
       <DependentUpon>201911290234075_AddOrderDetailsModelAndRelationship.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911291333022_AddCustomersModelDataAnnotations.cs" />
+    <Compile Include="Migrations\201911291333022_AddCustomersModelDataAnnotations.Designer.cs">
+      <DependentUpon>201911291333022_AddCustomersModelDataAnnotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Brands.cs" />
@@ -249,6 +254,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-MyBiciShop-20191128053228.mdf" />
+    <Content Include="App_Data\aspnet-MyBiciShop-20191128053228_log.ldf">
+      <DependentUpon>aspnet-MyBiciShop-20191128053228.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -353,10 +362,13 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
@@ -401,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911290234075_AddOrderDetailsModelAndRelationship.resx">
       <DependentUpon>201911290234075_AddOrderDetailsModelAndRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911291333022_AddCustomersModelDataAnnotations.resx">
+      <DependentUpon>201911291333022_AddCustomersModelDataAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
