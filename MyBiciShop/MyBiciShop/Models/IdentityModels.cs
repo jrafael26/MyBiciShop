@@ -25,6 +25,18 @@ namespace MyBiciShop.Models
         {
         }
 
+        public DbSet<Customers> Customers { get; set; }
+        public DbSet<Stores> Stores { get; set; }
+        public DbSet<Staffs> Staffs { get; set; }
+        public DbSet<Brands> Brands { get; set; }
+        public DbSet<Categories> Categories { get; set; }
+
+        public DbSet<Products> Products { get; set; }
+        public DbSet<Stocks> Stocks { get; set; }
+
+        public DbSet<Orders> Orders { get; set; }
+        public DbSet<OrderItems> OrderItems { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

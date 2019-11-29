@@ -188,9 +188,63 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911282340478_InitialModel.cs" />
+    <Compile Include="Migrations\201911282340478_InitialModel.Designer.cs">
+      <DependentUpon>201911282340478_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911282359019_AddCustomersModel.cs" />
+    <Compile Include="Migrations\201911282359019_AddCustomersModel.Designer.cs">
+      <DependentUpon>201911282359019_AddCustomersModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290015105_AddStoreAndStaffModel.cs" />
+    <Compile Include="Migrations\201911290015105_AddStoreAndStaffModel.Designer.cs">
+      <DependentUpon>201911290015105_AddStoreAndStaffModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290029458_AddBrandsModel.cs" />
+    <Compile Include="Migrations\201911290029458_AddBrandsModel.Designer.cs">
+      <DependentUpon>201911290029458_AddBrandsModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290030533_AddPopulateBrands.cs" />
+    <Compile Include="Migrations\201911290030533_AddPopulateBrands.Designer.cs">
+      <DependentUpon>201911290030533_AddPopulateBrands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290049171_AddCategoriesModel.cs" />
+    <Compile Include="Migrations\201911290049171_AddCategoriesModel.Designer.cs">
+      <DependentUpon>201911290049171_AddCategoriesModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290050033_AddPopulateCategory.cs" />
+    <Compile Include="Migrations\201911290050033_AddPopulateCategory.Designer.cs">
+      <DependentUpon>201911290050033_AddPopulateCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290124499_AddProductsModelAndRelationship.cs" />
+    <Compile Include="Migrations\201911290124499_AddProductsModelAndRelationship.Designer.cs">
+      <DependentUpon>201911290124499_AddProductsModelAndRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290144006_AddStocksModelAndRelationship.cs" />
+    <Compile Include="Migrations\201911290144006_AddStocksModelAndRelationship.Designer.cs">
+      <DependentUpon>201911290144006_AddStocksModelAndRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290200477_AddOrdersModelAndRelationship.cs" />
+    <Compile Include="Migrations\201911290200477_AddOrdersModelAndRelationship.Designer.cs">
+      <DependentUpon>201911290200477_AddOrdersModelAndRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290234075_AddOrderDetailsModelAndRelationship.cs" />
+    <Compile Include="Migrations\201911290234075_AddOrderDetailsModelAndRelationship.Designer.cs">
+      <DependentUpon>201911290234075_AddOrderDetailsModelAndRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Brands.cs" />
+    <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OrderItems.cs" />
+    <Compile Include="Models\Orders.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Staffs.cs" />
+    <Compile Include="Models\Stocks.cs" />
+    <Compile Include="Models\Stores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -313,6 +367,41 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201911282340478_InitialModel.resx">
+      <DependentUpon>201911282340478_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911282359019_AddCustomersModel.resx">
+      <DependentUpon>201911282359019_AddCustomersModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290015105_AddStoreAndStaffModel.resx">
+      <DependentUpon>201911290015105_AddStoreAndStaffModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290029458_AddBrandsModel.resx">
+      <DependentUpon>201911290029458_AddBrandsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290030533_AddPopulateBrands.resx">
+      <DependentUpon>201911290030533_AddPopulateBrands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290049171_AddCategoriesModel.resx">
+      <DependentUpon>201911290049171_AddCategoriesModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290050033_AddPopulateCategory.resx">
+      <DependentUpon>201911290050033_AddPopulateCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290124499_AddProductsModelAndRelationship.resx">
+      <DependentUpon>201911290124499_AddProductsModelAndRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290144006_AddStocksModelAndRelationship.resx">
+      <DependentUpon>201911290144006_AddStocksModelAndRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290200477_AddOrdersModelAndRelationship.resx">
+      <DependentUpon>201911290200477_AddOrdersModelAndRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290234075_AddOrderDetailsModelAndRelationship.resx">
+      <DependentUpon>201911290234075_AddOrderDetailsModelAndRelationship.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
