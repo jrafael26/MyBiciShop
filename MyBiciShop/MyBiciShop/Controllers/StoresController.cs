@@ -17,8 +17,7 @@ namespace MyBiciShop.Controllers
         // GET: Stores
         public ActionResult Index()
         {
-            var stores = db.Stores.Include(s => s.Stocks);
-            return View(stores.ToList());
+            return View(db.Stores.ToList());
         }
 
         // GET: Stores/Details/5
@@ -39,7 +38,6 @@ namespace MyBiciShop.Controllers
         // GET: Stores/Create
         public ActionResult Create()
         {
-            ViewBag.store_id = new SelectList(db.Stocks, "stock_id", "stock_id");
             return View();
         }
 
@@ -57,7 +55,6 @@ namespace MyBiciShop.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.store_id = new SelectList(db.Stocks, "stock_id", "stock_id", stores.store_id);
             return View(stores);
         }
 
@@ -73,7 +70,6 @@ namespace MyBiciShop.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.store_id = new SelectList(db.Stocks, "stock_id", "stock_id", stores.store_id);
             return View(stores);
         }
 
@@ -90,7 +86,6 @@ namespace MyBiciShop.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.store_id = new SelectList(db.Stocks, "stock_id", "stock_id", stores.store_id);
             return View(stores);
         }
 

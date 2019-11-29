@@ -23,7 +23,7 @@ namespace MyBiciShop.Models
         public string state { get; set; }
         public int zip_code { get; set; }
 
-        public Stocks Stocks { get; set; }
+        public ICollection<Stocks> Stocks { get; set; }
         public ICollection<Staffs> Staffs { get; set; }
         public ICollection<Orders> Orders { get; set; }
     }

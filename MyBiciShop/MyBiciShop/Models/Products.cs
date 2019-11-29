@@ -19,6 +19,8 @@ namespace MyBiciShop.Models
         public int model_year { get; set; }
         public double list_price { get; set; }
 
+        public string description { get; set; }
+
         public Stocks Stocks { get; set; }
 
 

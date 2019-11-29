@@ -39,7 +39,7 @@ namespace MyBiciShop.Controllers
         // GET: Stocks/Create
         public ActionResult Create()
         {
-            ViewBag.stock_id = new SelectList(db.Stores, "store_id", "store_name");
+            ViewBag.store_id = new SelectList(db.Stores, "store_id", "store_name");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace MyBiciShop.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "stock_id,product_id,quantity")] Stocks stocks)
+        public ActionResult Create([Bind(Include = "stock_id,store_id,product_id,quantity")] Stocks stocks)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace MyBiciShop.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.stock_id = new SelectList(db.Stores, "store_id", "store_name", stocks.stock_id);
+            ViewBag.store_id = new SelectList(db.Stores, "store_id", "store_name", stocks.store_id);
             return View(stocks);
         }
 
@@ -73,7 +73,7 @@ namespace MyBiciShop.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.stock_id = new SelectList(db.Stores, "store_id", "store_name", stocks.stock_id);
+            ViewBag.store_id = new SelectList(db.Stores, "store_id", "store_name", stocks.store_id);
             return View(stocks);
         }
 
@@ -82,7 +82,7 @@ namespace MyBiciShop.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "stock_id,product_id,quantity")] Stocks stocks)
+        public ActionResult Edit([Bind(Include = "stock_id,store_id,product_id,quantity")] Stocks stocks)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace MyBiciShop.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.stock_id = new SelectList(db.Stores, "store_id", "store_name", stocks.stock_id);
+            ViewBag.store_id = new SelectList(db.Stores, "store_id", "store_name", stocks.store_id);
             return View(stocks);
         }
 

@@ -28,11 +28,17 @@ namespace MyBiciShop.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Products products = db.Products.Find(id);
+            Products products = db.Products.Include(p => p.Brands)
+                .Include(p => p.Categories)
+                .Include(p => p.Stocks)
+                .SingleOrDefault(p => p.product_id==id);
             if (products == null)
             {
                 return HttpNotFound();
             }
+
+            var stock = db.Stocks.ToList().Find(s => s.product_id == id);
+            products.Stocks = stock;
             return View(products);
         }
 
@@ -49,7 +55,7 @@ namespace MyBiciShop.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "product_id,product_name,brand_id,category_id,model_year,list_price")] Products products)
+        public ActionResult Create([Bind(Include = "product_id,product_name,brand_id,category_id,model_year,list_price,description")] Products products)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +91,7 @@ namespace MyBiciShop.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "product_id,product_name,brand_id,category_id,model_year,list_price")] Products products)
+        public ActionResult Edit([Bind(Include = "product_id,product_name,brand_id,category_id,model_year,list_price,description")] Products products)
         {
             if (ModelState.IsValid)
             {

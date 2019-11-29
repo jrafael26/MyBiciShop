@@ -23,9 +23,12 @@
         <th>
             @Html.DisplayNameFor(model => model.model_year)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.list_price)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>*@
         <th></th>
     </tr>
 
@@ -43,9 +46,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.model_year)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.list_price)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.product_id }) |
             @Html.ActionLink("Details", "Details", new { id=item.product_id }) |
