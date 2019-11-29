@@ -1,0 +1,42 @@
+﻿@model MyBiciShop.Models.Stocks
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Stocks</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Stores.store_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stores.store_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.stock_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
