@@ -12,7 +12,7 @@ namespace MyBiciShop.Models
         public int order_id { get; set; }
         public int customer_id { get; set; }
         public Customers Customers { get; set; }
-        public string order_status { get; set; }
+        public OrderStatus order_status { get; set; }
         public DateTime order_date { get; set; }
         public DateTime required_date { get; set; }
         public DateTime shipped_date { get; set; }

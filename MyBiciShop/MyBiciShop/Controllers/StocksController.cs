@@ -17,7 +17,7 @@ namespace MyBiciShop.Controllers
         // GET: Stocks
         public ActionResult Index()
         {
-            var stocks = db.Stocks.Include(s => s.Stores);
+            var stocks = db.Stocks.Include(s => s.Stores).Include(s => s.Products);
             return View(stocks.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace MyBiciShop.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Stocks stocks = db.Stocks.Find(id);
+            Stocks stocks = db.Stocks.Include(s => s.Stores).Include(p => p.Products).SingleOrDefault(s => s.stock_id == id);
             if (stocks == null)
             {
                 return HttpNotFound();
@@ -40,6 +40,7 @@ namespace MyBiciShop.Controllers
         public ActionResult Create()
         {
             ViewBag.store_id = new SelectList(db.Stores, "store_id", "store_name");
+            ViewBag.product_id = new SelectList(db.Products, "product_id", "product_name");
             return View();
         }
 
@@ -58,6 +59,7 @@ namespace MyBiciShop.Controllers
             }
 
             ViewBag.store_id = new SelectList(db.Stores, "store_id", "store_name", stocks.store_id);
+            ViewBag.product_id = new SelectList(db.Products, "product_id", "product_name", stocks.product_id);
             return View(stocks);
         }
 

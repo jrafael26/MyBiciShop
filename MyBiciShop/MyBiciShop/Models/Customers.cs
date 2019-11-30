@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace MyBiciShop.Models
 {
     public class Customers
@@ -15,6 +17,9 @@ namespace MyBiciShop.Models
         [StringLength(50)]
         [Display(Name = "Apellido")]
         public string last_name { get; set; }
+
+        [NotMapped]
+        public string full_name { get { return string.Format("{0} {1}", first_name, last_name); } }
         [DataType(DataType.PhoneNumber)]
         [StringLength(50)]
         [Display(Name = "Teléfono")]

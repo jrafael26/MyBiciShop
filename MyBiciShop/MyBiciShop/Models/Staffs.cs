@@ -19,7 +19,7 @@ namespace MyBiciShop.Models
         [Required]
         [DataType(DataType.EmailAddress)]
         public string email { get; set; }
-        public byte active { get; set; }
+        public bool active { get; set; }
         public int store_id { get; set; }
 
         public Stores Stores { get; set; }

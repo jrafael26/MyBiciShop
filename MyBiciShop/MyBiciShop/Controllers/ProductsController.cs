@@ -59,6 +59,10 @@ namespace MyBiciShop.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (products.brand_id==0 || products.category_id==0)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 db.Products.Add(products);
                 db.SaveChanges();
                 return RedirectToAction("Index");

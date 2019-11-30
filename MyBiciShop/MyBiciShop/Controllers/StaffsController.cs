@@ -28,7 +28,7 @@ namespace MyBiciShop.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staffs staffs = db.Staffs.Find(id);
+            Staffs staffs = db.Staffs.Include(s =>s.Stores).SingleOrDefault(st => st.staff_id==id);
             if (staffs == null)
             {
                 return HttpNotFound();

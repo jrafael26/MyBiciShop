@@ -23,6 +23,6 @@ namespace MyBiciShop.Models
 
         public Stocks Stocks { get; set; }
 
-
+        public ICollection<OrderItems> OrderItems { get; set; }
     }
 }

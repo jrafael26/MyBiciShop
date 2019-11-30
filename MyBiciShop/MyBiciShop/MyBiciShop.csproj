@@ -193,6 +193,7 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
@@ -200,65 +201,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911282340478_InitialModel.cs" />
-    <Compile Include="Migrations\201911282340478_InitialModel.Designer.cs">
-      <DependentUpon>201911282340478_InitialModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911282359019_AddCustomersModel.cs" />
-    <Compile Include="Migrations\201911282359019_AddCustomersModel.Designer.cs">
-      <DependentUpon>201911282359019_AddCustomersModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911290015105_AddStoreAndStaffModel.cs" />
-    <Compile Include="Migrations\201911290015105_AddStoreAndStaffModel.Designer.cs">
-      <DependentUpon>201911290015105_AddStoreAndStaffModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911290029458_AddBrandsModel.cs" />
-    <Compile Include="Migrations\201911290029458_AddBrandsModel.Designer.cs">
-      <DependentUpon>201911290029458_AddBrandsModel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201911290030533_AddPopulateBrands.cs" />
     <Compile Include="Migrations\201911290030533_AddPopulateBrands.Designer.cs">
       <DependentUpon>201911290030533_AddPopulateBrands.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911290049171_AddCategoriesModel.cs" />
-    <Compile Include="Migrations\201911290049171_AddCategoriesModel.Designer.cs">
-      <DependentUpon>201911290049171_AddCategoriesModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201911290050033_AddPopulateCategory.cs" />
     <Compile Include="Migrations\201911290050033_AddPopulateCategory.Designer.cs">
       <DependentUpon>201911290050033_AddPopulateCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911290124499_AddProductsModelAndRelationship.cs" />
-    <Compile Include="Migrations\201911290124499_AddProductsModelAndRelationship.Designer.cs">
-      <DependentUpon>201911290124499_AddProductsModelAndRelationship.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911290144006_AddStocksModelAndRelationship.cs" />
-    <Compile Include="Migrations\201911290144006_AddStocksModelAndRelationship.Designer.cs">
-      <DependentUpon>201911290144006_AddStocksModelAndRelationship.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911290200477_AddOrdersModelAndRelationship.cs" />
-    <Compile Include="Migrations\201911290200477_AddOrdersModelAndRelationship.Designer.cs">
-      <DependentUpon>201911290200477_AddOrdersModelAndRelationship.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911290234075_AddOrderDetailsModelAndRelationship.cs" />
-    <Compile Include="Migrations\201911290234075_AddOrderDetailsModelAndRelationship.Designer.cs">
-      <DependentUpon>201911290234075_AddOrderDetailsModelAndRelationship.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911291333022_AddCustomersModelDataAnnotations.cs" />
-    <Compile Include="Migrations\201911291333022_AddCustomersModelDataAnnotations.Designer.cs">
-      <DependentUpon>201911291333022_AddCustomersModelDataAnnotations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911291552089_FixStocksModel.cs" />
-    <Compile Include="Migrations\201911291552089_FixStocksModel.Designer.cs">
-      <DependentUpon>201911291552089_FixStocksModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911291619526_AddDescriptionFieldOnProductsModel.cs" />
-    <Compile Include="Migrations\201911291619526_AddDescriptionFieldOnProductsModel.Designer.cs">
-      <DependentUpon>201911291619526_AddDescriptionFieldOnProductsModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911291751586_FixStocks2Model.cs" />
-    <Compile Include="Migrations\201911291751586_FixStocks2Model.Designer.cs">
-      <DependentUpon>201911291751586_FixStocks2Model.cs</DependentUpon>
+    <Compile Include="Migrations\201911300731057_FixDB.cs" />
+    <Compile Include="Migrations\201911300731057_FixDB.Designer.cs">
+      <DependentUpon>201911300731057_FixDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -269,18 +222,21 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderItems.cs" />
     <Compile Include="Models\Orders.cs" />
+    <Compile Include="Models\OrderStatus.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\Staffs.cs" />
     <Compile Include="Models\Stocks.cs" />
     <Compile Include="Models\Stores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\OrderView.cs" />
     <Compile Include="ViewModels\ProductFormViewModel.cs" />
+    <Compile Include="ViewModels\ProductOrderViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-MyBiciShop-20191128053228.mdf" />
-    <Content Include="App_Data\aspnet-MyBiciShop-20191128053228_log.ldf">
-      <DependentUpon>aspnet-MyBiciShop-20191128053228.mdf</DependentUpon>
+    <Content Include="App_Data\MyBiciShop.mdf" />
+    <Content Include="App_Data\MyBiciShop_log.ldf">
+      <DependentUpon>MyBiciShop.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -391,10 +347,8 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Staffs\Create.cshtml" />
     <Content Include="Views\Staffs\Delete.cshtml" />
     <Content Include="Views\Staffs\Details.cshtml" />
-    <Content Include="Views\Staffs\Edit.cshtml" />
     <Content Include="Views\Staffs\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
@@ -421,8 +375,12 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Staffs\Create.cshtml" />
+    <Content Include="Views\Staffs\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Orders\NewOrder.cshtml" />
+    <Content Include="Views\Orders\AddProduct.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
@@ -435,50 +393,14 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911282340478_InitialModel.resx">
-      <DependentUpon>201911282340478_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911282359019_AddCustomersModel.resx">
-      <DependentUpon>201911282359019_AddCustomersModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911290015105_AddStoreAndStaffModel.resx">
-      <DependentUpon>201911290015105_AddStoreAndStaffModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911290029458_AddBrandsModel.resx">
-      <DependentUpon>201911290029458_AddBrandsModel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911290030533_AddPopulateBrands.resx">
       <DependentUpon>201911290030533_AddPopulateBrands.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911290049171_AddCategoriesModel.resx">
-      <DependentUpon>201911290049171_AddCategoriesModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911290050033_AddPopulateCategory.resx">
       <DependentUpon>201911290050033_AddPopulateCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911290124499_AddProductsModelAndRelationship.resx">
-      <DependentUpon>201911290124499_AddProductsModelAndRelationship.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911290144006_AddStocksModelAndRelationship.resx">
-      <DependentUpon>201911290144006_AddStocksModelAndRelationship.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911290200477_AddOrdersModelAndRelationship.resx">
-      <DependentUpon>201911290200477_AddOrdersModelAndRelationship.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911290234075_AddOrderDetailsModelAndRelationship.resx">
-      <DependentUpon>201911290234075_AddOrderDetailsModelAndRelationship.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911291333022_AddCustomersModelDataAnnotations.resx">
-      <DependentUpon>201911291333022_AddCustomersModelDataAnnotations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911291552089_FixStocksModel.resx">
-      <DependentUpon>201911291552089_FixStocksModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911291619526_AddDescriptionFieldOnProductsModel.resx">
-      <DependentUpon>201911291619526_AddDescriptionFieldOnProductsModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911291751586_FixStocks2Model.resx">
-      <DependentUpon>201911291751586_FixStocks2Model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911300731057_FixDB.resx">
+      <DependentUpon>201911300731057_FixDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

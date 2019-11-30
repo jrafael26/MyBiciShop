@@ -1,23 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+aspnet-MyBiciShop-20191128053228
 
-namespace MyBiciShop.Models
-{
-    public class OrderItems
-    {
+Tentativa de tabla order
         [Key]
 
         public int orderItem_id { get; set; }
         public int order_id { get; set; }
         public Orders Orders { get; set; }
         public int product_id { get; set; }
-        public Products Products { get; set; }
+        public ICollection<Products> Products { get; set; }
         public double list_price { get; set; }
         public double discount { get; set; }
         public int quantity { get; set; }
-    }
-}
+
