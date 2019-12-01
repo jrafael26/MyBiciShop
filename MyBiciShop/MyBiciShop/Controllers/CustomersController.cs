@@ -6,13 +6,44 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using MyBiciShop.Models;
+using MyBiciShop.ViewModels;
 
 namespace MyBiciShop.Controllers
 {
     public class CustomersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        private void RegisterCustomer(string email)
+        {
+            if (string.IsNullOrEmpty(email)) return;
+
+            var userManager = new UserManager<ApplicationUser>
+                (new UserStore<ApplicationUser>(db));
+
+            var user = userManager.FindByName(email);
+            if (user == null)
+            {
+                user = new ApplicationUser
+                {
+                    UserName = email,
+                    Email = email
+                };
+                userManager.Create(user, "Cliente123.");
+            }
+
+            var roleManager = new RoleManager<IdentityRole>
+                (new RoleStore<IdentityRole>(db));
+
+
+            if (!userManager.IsInRole(user.Id, RoleName.Cliente))
+            {
+                userManager.AddToRole(user.Id, RoleName.Cliente);
+            }
+        }
 
         // GET: Customers
         public ActionResult Index()
@@ -52,6 +83,7 @@ namespace MyBiciShop.Controllers
             {
                 db.Customers.Add(customers);
                 db.SaveChanges();
+                RegisterCustomer(customers.email);
                 return RedirectToAction("Index");
             }
 

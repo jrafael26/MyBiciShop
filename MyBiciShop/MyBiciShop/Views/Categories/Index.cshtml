@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<MyBiciShop.Models.Categories>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Category";
 }
 
-<h2>Index</h2>
+    <h2>Category</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-warning btn-xs" })
 </p>
 <table class="table">
     <tr>
@@ -18,16 +18,17 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.category_name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.category_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.category_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.category_id })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.category_name)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.category_id }, new { @class = "glyphicon glyphicon-edit btn btn-info btn-xs" })
+        @Html.ActionLink("Details", "Details", new { id = item.category_id }, new { @class = "glyphicon glyphicon-list btn btn-success btn-xs" })
+        @Html.ActionLink("Delete", "Delete", new { id = item.category_id }, new { @class = "glyphicon glyphicon-remove btn btn-danger btn-xs" })
+    </td>
+</tr>
 }
 
 </table>

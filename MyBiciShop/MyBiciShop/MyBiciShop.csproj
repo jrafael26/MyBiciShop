@@ -198,6 +198,7 @@
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\StoresController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -232,6 +233,9 @@
     <Compile Include="ViewModels\OrderView.cs" />
     <Compile Include="ViewModels\ProductFormViewModel.cs" />
     <Compile Include="ViewModels\ProductOrderViewModel.cs" />
+    <Compile Include="Models\RoleName.cs" />
+    <Compile Include="ViewModels\RoleView.cs" />
+    <Compile Include="ViewModels\UserView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MyBiciShop.mdf" />
@@ -377,9 +381,13 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Staffs\Create.cshtml" />
     <Content Include="Views\Staffs\Edit.cshtml" />
-    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Orders\Index1.cshtml" />
     <Content Include="Views\Orders\NewOrder.cshtml" />
     <Content Include="Views\Orders\AddProduct.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Roles.cshtml" />
+    <Content Include="Views\Users\AddRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -403,6 +411,7 @@
       <DependentUpon>201911300731057_FixDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

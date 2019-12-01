@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<MyBiciShop.Models.Products>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Products";
 }
 
-<h2>Index</h2>
+<h2>Products</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-warning btn-xs" })
 </p>
 <table class="table">
     <tr>
@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.description)
         </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.product_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.product_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.product_id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.product_id }, new { @class="btn btn-info btn-xs"}) |
+            @Html.ActionLink("Details", "Details", new { id=item.product_id }, new { @class="btn btn-success btn-xs"}) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.product_id }, new { @class="btn btn-danger btn-xs"})
         </td>
     </tr>
 }

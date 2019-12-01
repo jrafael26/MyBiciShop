@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<MyBiciShop.Models.Brands>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Brands";
 }
 
-<h2>Index</h2>
+<h2>Brands</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create",null, new { @class = "btn btn-warning btn-xs" })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.brand_name)
+            Brand
         </th>
         <th></th>
     </tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.brand_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.brand_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.brand_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.brand_id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.brand_id }, new { @class = "glyphicon glyphicon-edit btn btn-info btn-xs" })
+            @Html.ActionLink("Details", "Details", new { id=item.brand_id },new { @class = "glyphicon glyphicon-list btn btn-success btn-xs" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.brand_id }, new { @class = "glyphicon glyphicon-remove btn btn-danger btn-xs" })
         </td>
     </tr>
 }

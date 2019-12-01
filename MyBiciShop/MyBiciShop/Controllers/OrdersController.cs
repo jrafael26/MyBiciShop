@@ -2,6 +2,7 @@
 using MyBiciShop.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,12 +13,13 @@ namespace MyBiciShop.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Orders
-        //public ActionResult Index()
-        //{
-        //    List<Customers> OrderAndCustomerList = db.Customers.ToList();
-        //    ViewBag.customer_id = new SelectList(db.Customers, "customer_id", "first_name");
-        //    return View(OrderAndCustomerList);
-        //}
+        public ActionResult Index()
+        {
+            var order = db.Orders.Include(dt => dt.OrderItems)
+                .Include(c => c.Customers).ToList();
+ 
+            return View(order);
+        }
         private string ErrorSmS { get; set; }
         public ActionResult NewOrder()
         {
@@ -40,6 +42,7 @@ namespace MyBiciShop.Controllers
 
             //Validamos que selecionen un customer
             var customerID = int.Parse(Request["customer_id"]);
+            var usuario = Request["AUTH_USER"];
             if (customerID == 0)
             {
                 ErrorSmS = "Debes seleccionar un cliente.";
@@ -62,38 +65,64 @@ namespace MyBiciShop.Controllers
                 return View(orderView);
             }
 
-            //Vamos a enviar la orden a la BD
+            int orderID = 0;
 
-            var order = new Orders
+            using (var trans = db.Database.BeginTransaction())
             {
-                customer_id = customerID,
-                order_date = DateTime.Now,
-                order_status = OrderStatus.Created,
-                required_date=DateTime.Now,
-                shipped_date= DateTime.Now,
-                staff_id =1
 
-            };
 
-            db.Orders.Add(order);
-            db.SaveChanges();
-
-            var orderID = db.Orders.ToList().Select(o => o.order_id).Max();
-
-            foreach (var item in orderView.Products)
-            {
-                var orderDetails = new OrderItems
+                try
                 {
-                    product_id= item.product_id,
-                    list_price = item.list_price,
-                    quantity = item.quantity,
-                    order_id = orderID
-                    
-                };
-                db.OrderItems.Add(orderDetails);
-            }
+                    //Vamos a enviar la orden a la BD
 
-            db.SaveChanges();
+                    var storeID = db.Staffs.ToList().Find(x => x.email == usuario);
+                    var order = new Orders
+                    {
+                        customer_id = customerID,
+                        order_date = DateTime.Now,
+                        order_status = OrderStatus.Created,
+                        required_date = DateTime.Now,
+                        shipped_date = DateTime.Now.AddDays(7),
+                        store_id = storeID.store_id,
+                        staff_id = storeID.staff_id
+
+                    };
+
+                    db.Orders.Add(order);
+                    db.SaveChanges();
+
+                    orderID = db.Orders.ToList().Select(o => o.order_id).Max();
+
+                    foreach (var item in orderView.Products)
+                    {
+                        var orderDetails = new OrderItems
+                        {
+                            product_id = item.product_id,
+                            list_price = item.list_price,
+                            quantity = item.quantity,
+                            order_id = orderID
+
+                        };
+                        db.OrderItems.Add(orderDetails);
+                        db.SaveChanges();
+                        var stock = db.Stocks.ToList().Find(s => s.product_id == item.product_id);
+                        stock.quantity = (stock.quantity - item.quantity);
+                        db.Entry(stock).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    trans.Commit();
+                    ErrorSmS = string.Format("La orden: {0}, fue grabada correctamente!", orderID);
+                    LlenarCustomers();
+                }
+                catch (Exception ex)
+                {
+
+                    trans.Rollback();
+                    ErrorSmS = ex.Message;
+                    return View(orderView);
+                }
+            }
+        
 
          return   RedirectToAction("NewOrder");
         }

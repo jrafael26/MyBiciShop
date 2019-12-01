@@ -10,20 +10,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link btn btn-sm btn-outline-secondary" href="/Home/">Inicio <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link btn btn-lg btn-outline-secondary" href="/Home/">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle btn btn-sm btn-outline-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle btn btn-lg btn-outline-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Archivo
                 </a>
-                <div class="dropdown-menu btn btn-sm btn-outline-light" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu btn btn-lg btn-outline-light" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/Brands/Index">Brand</a>
                     <a class="dropdown-item" href="/Categories/Index">Category</a>
                     <a class="dropdown-item" href="/Customers/Index">Customer</a>
-                    <a class="dropdown-item" href="/Orders/NewOrder">Order</a>
                     <a class="dropdown-item" href="/Products/Index">Product</a>
                     <a class="dropdown-item" href="/Staffs/Index">Staff</a>
                     <a class="dropdown-item" href="/Stocks/Index">Stock</a>
@@ -33,16 +29,14 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle btn btn-sm btn-outline-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle btn btn-lg btn-outline-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Pedidos
                 </a>
                 <div class="dropdown-menu btn btn-sm btn-outline-light" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/Orders/NewOrder">Order</a>
+                    <a class="dropdown-item" href="/Orders/Index">Listado de Ordenes</a>
+                    <a class="dropdown-item" href="/Orders/NewOrder">Nueva Order</a>
 
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
             </li>
         </ul>
         @Html.Partial("_LoginPartial")

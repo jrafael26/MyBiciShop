@@ -69,7 +69,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.product_id }) |
-    @*@Html.ActionLink("Asignar a tienda", "/Stocks/Create", new { id = Model.product_id }) |*@
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.product_id }, new { @class = "btn btn-sn btn-info" }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.product_id }, new { @class = "btn btn-sn btn-danger" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sn btn-success" })
 </p>

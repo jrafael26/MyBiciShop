@@ -6,13 +6,48 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using MyBiciShop.Models;
+using MyBiciShop.ViewModels;
 
 namespace MyBiciShop.Controllers
 {
     public class StaffsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        private void Register(string email, bool status=true)
+        {
+
+            if (string.IsNullOrEmpty(email)  || status== false)
+            {
+                return;
+            }
+
+            var userManager = new UserManager<ApplicationUser>
+                (new UserStore<ApplicationUser>(db));
+
+            var user = userManager.FindByName(email);
+            if (user == null)
+            {
+                user = new ApplicationUser
+                {
+                    UserName = email,
+                    Email = email
+                };
+                userManager.Create(user, "Venta123.");
+            }
+
+            var roleManager = new RoleManager<IdentityRole>
+                (new RoleStore<IdentityRole>(db));
+
+
+            if (!userManager.IsInRole(user.Id, RoleName.Vendedor))
+            {
+                userManager.AddToRole(user.Id, RoleName.Vendedor);
+            }
+        }
 
         // GET: Staffs
         public ActionResult Index()
@@ -54,6 +89,7 @@ namespace MyBiciShop.Controllers
             {
                 db.Staffs.Add(staffs);
                 db.SaveChanges();
+                Register(staffs.email,staffs.active);
                 return RedirectToAction("Index");
             }
 
@@ -88,6 +124,7 @@ namespace MyBiciShop.Controllers
             {
                 db.Entry(staffs).State = EntityState.Modified;
                 db.SaveChanges();
+                Register(staffs.email,staffs.active);
                 return RedirectToAction("Index");
             }
             ViewBag.store_id = new SelectList(db.Stores, "store_id", "store_name", staffs.store_id);

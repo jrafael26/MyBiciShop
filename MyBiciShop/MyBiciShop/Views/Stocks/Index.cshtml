@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Asignar producto a tiendas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nueva", "Create", null, new { @class = "btn btn-warning btn-xs" })
 </p>
 <table class="table">
     <tr>
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.quantity)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.stock_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.stock_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.stock_id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.stock_id }, new { @class = "glyphicon glyphicon-edit btn btn-info btn-xs" })
+            @Html.ActionLink("Details", "Details", new { id = item.stock_id }, new { @class = "glyphicon glyphicon-list btn btn-success btn-xs" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.stock_id }, new { @class = "glyphicon glyphicon-remove btn btn-danger btn-xs" })
         </td>
     </tr>
 }
