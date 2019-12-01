@@ -10,11 +10,13 @@ using MyBiciShop.Models;
 
 namespace MyBiciShop.Controllers
 {
+    [Authorize]
     public class BrandsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Brands
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Brands.ToList());

@@ -7,9 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MyBiciShop.Models;
+using MyBiciShop.ViewModels;
 
 namespace MyBiciShop.Controllers
 {
+    [Authorize(Roles = RoleName.Administrador)]
+    [Authorize(Roles = RoleName.Vendedor)]
     public class StoresController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

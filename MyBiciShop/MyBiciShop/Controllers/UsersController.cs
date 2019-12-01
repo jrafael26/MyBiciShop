@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace MyBiciShop.Controllers
 {
+    [Authorize(Roles = RoleName.Administrador)]
     public class UsersController : Controller
     {
         // GET: Users

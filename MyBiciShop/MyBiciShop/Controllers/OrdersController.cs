@@ -9,6 +9,9 @@ using System.Web.Mvc;
 
 namespace MyBiciShop.Controllers
 {
+    
+    [Authorize(Roles = RoleName.Vendedor)]
+    [Authorize(Roles = RoleName.Administrador)]
     public class OrdersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -184,6 +187,14 @@ namespace MyBiciShop.Controllers
 
             LlenarCustomers();
             return View("NewOrder", orderView);
+        }
+
+        public ActionResult Details(int? id)
+        {
+            //var order = db.OrderItems.Include(o => o.Orders).Include(p => p.Products).ToList().Find(dt => dt.order_id==id);
+            var order = db.OrderItems.Include(o => o.Orders).Include(p => p.Products).ToList().Find(dt => dt.order_id == id);
+
+            return View(order);
         }
         private void LlenarCustomers()
         {

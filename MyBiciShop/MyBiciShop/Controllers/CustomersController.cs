@@ -13,6 +13,9 @@ using MyBiciShop.ViewModels;
 
 namespace MyBiciShop.Controllers
 {
+    [Authorize(Roles = RoleName.Cliente)]
+    [Authorize(Roles = RoleName.Administrador)]
+    [Authorize(Roles = RoleName.Vendedor)]
     public class CustomersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

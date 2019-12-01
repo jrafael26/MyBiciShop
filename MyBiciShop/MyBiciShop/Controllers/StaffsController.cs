@@ -13,6 +13,8 @@ using MyBiciShop.ViewModels;
 
 namespace MyBiciShop.Controllers
 {
+    [Authorize(Roles = RoleName.Administrador)]
+
     public class StaffsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

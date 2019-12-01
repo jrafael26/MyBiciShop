@@ -7,14 +7,18 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MyBiciShop.Models;
+using MyBiciShop.ViewModels;
 
 namespace MyBiciShop.Controllers
 {
+
+
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Products
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var products = db.Products.Include(p => p.Brands).Include(p => p.Categories);
@@ -22,6 +26,8 @@ namespace MyBiciShop.Controllers
         }
 
         // GET: Products/Details/5
+
+        [Authorize(Roles = RoleName.Vendedor)]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -43,6 +49,7 @@ namespace MyBiciShop.Controllers
         }
 
         // GET: Products/Create
+        [Authorize(Roles = RoleName.Vendedor)]
         public ActionResult Create()
         {
             ViewBag.brand_id = new SelectList(db.Brands, "brand_id", "brand_name");
@@ -55,6 +62,8 @@ namespace MyBiciShop.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+        [Authorize(Roles = RoleName.Vendedor)]
         public ActionResult Create([Bind(Include = "product_id,product_name,brand_id,category_id,model_year,list_price,description")] Products products)
         {
             if (ModelState.IsValid)
@@ -74,6 +83,7 @@ namespace MyBiciShop.Controllers
         }
 
         // GET: Products/Edit/5
+        [Authorize(Roles = RoleName.Vendedor)]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +105,8 @@ namespace MyBiciShop.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+        [Authorize(Roles = RoleName.Vendedor)]
         public ActionResult Edit([Bind(Include = "product_id,product_name,brand_id,category_id,model_year,list_price,description")] Products products)
         {
             if (ModelState.IsValid)
@@ -109,6 +121,7 @@ namespace MyBiciShop.Controllers
         }
 
         // GET: Products/Delete/5
+        [Authorize(Roles = RoleName.Vendedor)]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -126,6 +139,8 @@ namespace MyBiciShop.Controllers
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+
+        [Authorize(Roles = RoleName.Vendedor)]
         public ActionResult DeleteConfirmed(int id)
         {
             Products products = db.Products.Find(id);
