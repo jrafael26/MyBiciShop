@@ -202,17 +202,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911290030533_AddPopulateBrands.cs" />
-    <Compile Include="Migrations\201911290030533_AddPopulateBrands.Designer.cs">
-      <DependentUpon>201911290030533_AddPopulateBrands.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911290050033_AddPopulateCategory.cs" />
-    <Compile Include="Migrations\201911290050033_AddPopulateCategory.Designer.cs">
-      <DependentUpon>201911290050033_AddPopulateCategory.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201911300731057_FixDB.cs" />
     <Compile Include="Migrations\201911300731057_FixDB.Designer.cs">
       <DependentUpon>201911300731057_FixDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912021226556_AddPopulateBrands.cs" />
+    <Compile Include="Migrations\201912021226556_AddPopulateBrands.Designer.cs">
+      <DependentUpon>201912021226556_AddPopulateBrands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912021228034_AddPopulateCategory.cs" />
+    <Compile Include="Migrations\201912021228034_AddPopulateCategory.Designer.cs">
+      <DependentUpon>201912021228034_AddPopulateCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -405,14 +405,14 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911290030533_AddPopulateBrands.resx">
-      <DependentUpon>201911290030533_AddPopulateBrands.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911290050033_AddPopulateCategory.resx">
-      <DependentUpon>201911290050033_AddPopulateCategory.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911300731057_FixDB.resx">
       <DependentUpon>201911300731057_FixDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912021226556_AddPopulateBrands.resx">
+      <DependentUpon>201912021226556_AddPopulateBrands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912021228034_AddPopulateCategory.resx">
+      <DependentUpon>201912021228034_AddPopulateCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
